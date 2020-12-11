@@ -3,7 +3,7 @@ package courier_test
 import (
 	"testing"
 
-	"courier"
+	"github.com/thiagohdeplima/courier"
 )
 
 var (
