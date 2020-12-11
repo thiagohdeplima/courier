@@ -21,7 +21,7 @@ var (
 func TestCourierConnections(t *testing.T) {
 	t.Run("when instantiate should have empty subscriptions", func(t *testing.T) {
 		if len(conn.Subscriptions) > 0 {
-			t.Errorf("excepted a empty list, got %#v", conn)
+			t.Errorf("excepted conn.Subscriptions{} to be a empty list, got %#v", conn)
 		}
 	})
 
@@ -29,7 +29,7 @@ func TestCourierConnections(t *testing.T) {
 		conn.AddSubscription(subs)
 
 		if len(conn.Subscriptions) != 1 {
-			t.Errorf("expected to append subscriptions, got %#v", conn)
+			t.Errorf("excepted conn.Subscriptions{} to be a list with one item, got %#v", conn)
 		}
 	})
 }
