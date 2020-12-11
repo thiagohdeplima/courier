@@ -3,6 +3,7 @@ package courier_test
 import (
 	"testing"
 
+	"github.com/stretchr/testify/assert"
 	"github.com/thiagohdeplima/courier"
 )
 
@@ -18,18 +19,16 @@ var (
 	}
 )
 
-func TestCourierConnections(t *testing.T) {
+func TestConnectionsAddSubscription(t *testing.T) {
 	t.Run("when instantiate should have empty subscriptions", func(t *testing.T) {
-		if len(conn.Subscriptions) > 0 {
-			t.Errorf("excepted conn.Subscriptions{} to be a empty list, got %#v", conn)
-		}
+		assert.Empty(t, conn.Subscriptions)
 	})
 
 	t.Run("when AddSubscription is called should append Subscriptions", func(t *testing.T) {
 		conn.AddSubscription(subs)
 
-		if len(conn.Subscriptions) != 1 {
-			t.Errorf("excepted conn.Subscriptions{} to be a list with one item, got %#v", conn)
-		}
+		assert.Len(t, conn.Subscriptions, 1)
+	})
+}
 	})
 }
