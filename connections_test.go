@@ -13,7 +13,7 @@ var (
 	subs courier.Subscription = courier.Subscription{
 		Name:      "SUB",
 		BrokerURL: "rabbitmq://rabbitmq",
-		Process: func(msg *courier.Message) (string, error) {
+		Process: func(msg *courier.Message) (interface{}, error) {
 			return "", nil
 		},
 	}

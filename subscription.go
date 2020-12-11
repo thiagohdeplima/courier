@@ -4,5 +4,5 @@ type Subscription struct {
 	Name      string
 	BrokerURL string
 
-	Process func(msg *Message) (string, error)
+	Process func(msg *Message) (interface{}, error)
 }
