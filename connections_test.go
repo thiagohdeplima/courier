@@ -30,5 +30,18 @@ func TestConnectionsAddSubscription(t *testing.T) {
 		assert.Len(t, conn.Subscriptions, 1)
 	})
 }
+
+func TestConnectionsStart(t *testing.T) {
+	t.Run("when attempt to Start without subscriptions should return error", func(t *testing.T) {
+		conn.Subscriptions = []courier.Subscription{}
+
+		expected := "must have at least one subscription to start"
+
+		assert.EqualError(t, conn.Start(), expected)
+	})
+
+	t.Run("when attempt to Start and have subscriptions shouldn't return errors", func(t *testing.T) {
+		conn.AddSubscription(subs)
+		assert.Nil(t, conn.Start())
 	})
 }
